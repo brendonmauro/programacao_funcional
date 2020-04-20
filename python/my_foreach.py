@@ -1,9 +1,11 @@
 def myForEach(listToIterate, callbackFunction):
 	if len(listToIterate) == 0:
 		return
-	element = listToIterate.pop(0)
+	
+	newList = list(listToIterate)
+	element = newList.pop(0)
 	callbackFunction(element)
-	myForEach(listToIterate, callbackFunction)
+	myForEach(newList, callbackFunction)
 
 def printPlus(elem):
 	print(elem + 1)
@@ -12,6 +14,7 @@ def main(args):
 	myList = [1,2,3,4,5]
 	
 	myForEach(myList, printPlus)
+	print(myList)
 	return 0
 
 if __name__ == '__main__':
